@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Todo List</title>
+        <link rel="stylesheet" type="text/css" href="styles/bootstrap.custom.css" />
+        <style type="text/css">
+            .completed {
+                text-decoration: line-through;
+            }
+        </style>
+        <script type="text/javascript" src="scripts/knockout-3.4.2.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8 col-md-push-2">
+                    <h2>Todo List</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 col-md-push-2 panel">
+                    <div class="list-group">
+                        <div class="list-group-item">
+                            <h3 data-bind="if: todos().length < 1">Hooray! You're done for the day!</h3>
+                            <div data-bind="foreach: todos">
+                                <div class="checkbox">
+                                    <label data-bind="css: { completed: complete() }">
+                                        <input type="checkbox" data-bind="checked: complete, disable: complete()" /><strong data-bind="text: title"></strong>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-group-item">
+                            <div class="input-group">
+                                <input type="text" class="form-control" data-bind="value: newTask, valueUpdate: 'keypress'" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success" data-bind="click: createTask, disable: !newTask()">Create Task</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="app/todoListViewModel.js"></script>
+    </body>
+</html>

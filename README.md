@@ -1,0 +1,1 @@
+A very simple static site used in some examples on my blog: [Shades of Azure](https://shadesofazure.com).
